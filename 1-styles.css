@@ -11,9 +11,7 @@ html {
 
 body {
   font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
-  line-height: 1.5;
-  color: #fff;
-  background-color: #000;
+  
 }
 
 a {
@@ -34,10 +32,14 @@ img {
 
 /* HEADER */
 .site-header {
-  background: url("images/background.png") center/cover no-repeat;
-  padding: 20px 0;
+  background-image: url('images/background.png');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  color: white;
   position: relative;
 }
+
 
 .header-container {
   display: flex;

@@ -1,0 +1,193 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Header background */
+.site-header {
+  background-image: url('images/background.png');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  color: white;
+  position: relative;
+}
+
+/* Header container with spacing */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 24px; /* <-- more spacing from top and side */
+  position: relative;
+}
+
+
+/* Logo */
+.logo-img {
+  width: 150px;
+}
+
+/* Navigation */
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.site-nav a:hover {
+  color: red;
+}
+/* Hero section */
+.hero {
+  text-align: center;
+  padding: 160px 20px 100px; /* ⬅️ Top padding increased */
+  color: white;
+}
+
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: #FF6565;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-bottom: 40px;
+}
+
+/* Tiny text after CTA */
+.hero-description p {
+  font-size: 12px; /* 👈 very small size */
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Hamburger */
+#menu-toggle {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.menu-icon span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  display: block;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .menu-icon {
+    display: none;
+  }
+
+  .site-nav {
+    display: block;
+  }
+
+  .site-nav ul {
+    display: flex;
+  }
+
+  .site-nav a {
+    color: white;
+  }
+  
+}
+  @media (max-width: 768px) {
+  .hero-description {
+    margin-top: 80px; /* Adjust this value as needed */
+  }
+
+  .hero {
+    padding-bottom: 120px; /* Add some space at bottom of hero to allow scrolling */
+    overflow-y: auto; /* Enable scrolling if content is tall */
+  }
+}
+
+
+
+/* Mobile */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: flex;
+  }
+
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 24px;
+  }
+
+  /* Change starts here */
+  .site-nav {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+    background: none;
+    position: static; /* ✅ important: allow content to flow naturally */
+  }
+
+  #menu-toggle:checked ~ .menu-icon + .logo + .site-nav {
+    display: flex;
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 20px;
+  }
+
+  .site-nav a {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .site-header {
+    height: auto; /* ✅ allow it to grow naturally */
+    overflow-y: visible;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero {
+    padding-top: 60px;
+    padding-bottom: 80px;
+  }
+}
