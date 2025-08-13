@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Headphones — Task 6 (CSS Pentagons)</title>
+  <link rel="stylesheet" href="6-styles.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+      <!-- Hamburger checkbox (hidden) -->
+      <input id="menu-toggle" type="checkbox" />
+
+      <!-- Visible hamburger button -->
+      <label for="menu-toggle" class="menu-icon" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <!-- Logo -->
+      <div class="logo">
+        <a href="#"><img src="images/logo (1).png" alt="Headphones logo" class="logo-img"></a>
+      </div>
+
+      <!-- Navigation menu (drops down on mobile) -->
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="#what-we-do">what we do</a></li>
+          <li><a href="#our-results">our results</a></li>
+          <li><a href="#contact">contact us</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+      <h1>Lorem ipsum dolor set amet lorem ipsum</h1>
+      <p>Lorem ipsum dolor set amet lorem ipsum dolor set</p>
+      <a class="btn" href="#">Call to Action</a>
+
+      <div class="hero-description">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- WHAT WE DO -->
+  <section id="what-we-do" class="what-we-do">
+    <div class="container">
+      <h2>What we do…</h2>
+      <p class="intro-text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+
+      <div class="services">
+        <div class="service-item">
+          <img class="service-icon" src="images/sound-frecuency.png" alt="Sound">
+          <h3>Audio Production</h3>
+          <p>We produce high-quality sound for all your creative projects.</p>
+        </div>
+
+        <div class="service-item">
+          <img class="service-icon" src="images/video.png" alt="Video">
+          <h3>Video Editing</h3>
+          <p>Professional video editing services for ads, films, and more.</p>
+        </div>
+
+        <div class="service-item">
+          <img class="service-icon" src="images/music.png" alt="Music">
+          <h3>Music Creation</h3>
+          <p>Custom music composition tailored to your vision.</p>
+        </div>
+
+        <div class="service-item">
+          <img class="service-icon" src="images/hearing.png" alt="Hearing">
+          <h3>Sound Engineering</h3>
+          <p>Expert sound mixing and mastering for a crisp, clear output.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR RESULTS (Pentagons drawn with CSS only) -->
+  <section id="our-results" class="our-results">
+    <div class="container">
+      <h2>Our results speak for themselves</h2>
+      <p class="intro-text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+
+      <div class="results-grid">
+        <!-- One item -->
+        <div class="result-item">
+          <div class="pentagon">
+            <div class="stat">
+              <span class="value">+2%</span>
+              <span class="label">Lorem ipsum</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-item">
+          <div class="pentagon">
+            <div class="stat">
+              <span class="value">+50%</span>
+              <span class="label">Lorem ipsum</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-item">
+          <div class="pentagon">
+            <div class="stat">
+              <span class="value">+100%</span>
+              <span class="label">Lorem ipsum</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-item">
+          <div class="pentagon">
+            <div class="stat">
+              <span class="value">+24%</span>
+              <span class="label">Lorem ipsum</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <h2>Contact Us</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">SEND MESSAGE</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="images/logo (1).png" alt="Headphones Logo" />
+      </div>
+      <div class="footer-social">
+        <a href="#"><img src="images/Facebook_White.png" alt="Facebook" /></a>
+        <a href="#"><img src="images/Twitter_White.png" alt="Twitter" /></a>
+        <a href="#"><img src="images/Instagram_White.png" alt="Instagram" /></a>
+      </div>
+    </div>
+    <p class="footer-copy">© 2025 Headphones. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
