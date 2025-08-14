@@ -1,0 +1,257 @@
+/* ========== RESET & BASE ========== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body { font-family: Arial, Helvetica, sans-serif; line-height: 1.4; color: #222; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* ========== HEADER & HERO ========== */
+.site-header {
+  background-image: url('images/background.png');
+  background-size: cover; background-position: center;
+  color: #fff; position: relative; min-height: 100vh;
+}
+.header-container {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 30px 24px; position: relative; z-index: 5;
+}
+.logo-img { width: 150px; display: block; }
+.site-nav ul { display: flex; gap: 40px; list-style: none; }
+.site-nav a { color: #fff; font-weight: 700; text-transform: lowercase; }
+.site-nav a:hover { color: #ff6565; }
+#menu-toggle { display: none; }
+.menu-icon { display: none; cursor: pointer; gap: 6px; flex-direction: column; }
+.menu-icon span { width: 28px; height: 3px; background: #fff; border-radius: 3px; display: block; }
+
+.hero { text-align: center; padding: 160px 20px 100px; color: #fff; }
+.hero h1 { font-size: 48px; margin-bottom: 18px; }
+.hero p { font-size: 22px; margin-bottom: 20px; }
+.btn { background: #ff6565; color: #fff; padding: 12px 28px; border-radius: 6px; display: inline-block; font-weight: 700; }
+
+/* ========== WHAT WE DO ========== */
+.what-we-do { background: #f7f7f7; padding: 80px 20px; text-align: center; color: #222; }
+.what-we-do h2 { font-size: 2.4rem; margin-bottom: 12px; }
+.intro-text { max-width: 700px; margin: 0 auto 40px; color: #555; }
+.services {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 32px; max-width: 1000px; margin: 0 auto;
+}
+.service-item {
+  padding: 28px 18px; border-radius: 10px; background: #fff;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+  text-align: center;
+  /* animation & hover */
+  animation: floatY 6.5s ease-in-out infinite alternate;
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.service-item:hover {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 16px 30px rgba(0,0,0,0.12);
+}
+.service-icon { width: 72px; margin-bottom: 18px; display: inline-block; }
+.service-item h3 { margin-bottom: 8px; }
+/* ---------- entrance animation (staggered) ---------- */
+.services {
+  display: grid; /* you already have this, but keep here to be safe */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* initial animated state for each card */
+.services .service-item {
+  background: #fff;
+  padding: 28px 18px;
+  border-radius: 10px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+  text-align: center;
+  transform: translateY(20px) scale(.98);
+  opacity: 0;
+  will-change: transform, opacity;
+  /* run entrance animation and keep final state */
+  animation: itemIn 600ms cubic-bezier(.2,.9,.25,1) forwards;
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+
+/* stagger the items (tweak delays if you want faster/slower) */
+.services .service-item:nth-child(1) { animation-delay: 0s; }
+.services .service-item:nth-child(2) { animation-delay: 0.12s; }
+.services .service-item:nth-child(3) { animation-delay: 0.24s; }
+.services .service-item:nth-child(4) { animation-delay: 0.36s; }
+
+@keyframes itemIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* hover & focus (keyboard-accessible) interaction */
+.services .service-item:hover,
+.services .service-item:focus {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 16px 30px rgba(0,0,0,0.12);
+  outline: none;
+}
+
+/* icon micro-interaction */
+.service-icon {
+  width: 72px;
+  margin-bottom: 18px;
+  display: inline-block;
+  transition: transform .35s cubic-bezier(.2,.9,.25,1);
+  will-change: transform;
+}
+.services .service-item:hover .service-icon,
+.services .service-item:focus .service-icon {
+  transform: translateY(-6px) rotate(-8deg) scale(1.06);
+}
+
+/* subtle looping float if you want a continuous gentle motion (optional).
+   If you prefer only hover effects, you can remove the animation line below. */
+.services .service-item .service-icon {
+  /* uncomment to enable a slow float for icons
+  animation: iconFloat 4s ease-in-out infinite;
+  */
+}
+@keyframes iconFloat {
+  0%,100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-6px) rotate(-2deg); }
+}
+
+/* accessibility: reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .services .service-item,
+  .services .service-item .service-icon {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ========== OUR RESULTS (CSS pentagons) ========== */
+.our-results {
+  padding: 80px 20px; text-align: center; color: #fff;
+  background-image: url('images/background (1).png'); /* section bg stays (allowed) */
+  background-size: cover; background-position: center; background-repeat: no-repeat;
+}
+.our-results h2 { font-size: 2.4rem; margin-bottom: 12px; }
+.our-results .intro-text { max-width: 650px; margin: 0 auto 40px; color: #e9eef3; }
+
+.results-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 30px; max-width: 1000px; margin: 0 auto;
+}
+.result-item { display: flex; align-items: center; justify-content: center; }
+
+/* Fade-up on load (staggered) */
+.result-item { animation: fadeUp .9s ease-out both; }
+.results-grid .result-item:nth-child(2) { animation-delay: .12s; }
+.results-grid .result-item:nth-child(3) { animation-delay: .24s; }
+.results-grid .result-item:nth-child(4) { animation-delay: .36s; }
+
+/* Pentagon (pure CSS) */
+.pentagon {
+  position: relative; width: 140px; height: 140px; margin: 0 auto;
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  background: #ff6565; border: 3px solid rgba(255,255,255,0.9);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+  display: grid; place-items: center;
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.pentagon:hover { transform: scale(1.06) rotate(2deg); box-shadow: 0 16px 30px rgba(0,0,0,0.22); }
+
+/* Subtle animated overlay so there's always motion, without breaking hover transforms */
+.pentagon::after {
+  content: ""; position: absolute; inset: 0; clip-path: inherit;
+  background-image: radial-gradient(currentColor 1px, transparent 1px);
+  background-size: 10px 10px; opacity: .12; color: #ffffff; pointer-events: none;
+  transform-origin: 50% 50%;
+  animation: rotateOverlay 18s linear infinite;
+}
+
+.stat { position: relative; text-align: center; z-index: 1; }
+.value { display: block; font-size: 1.4rem; font-weight: 800; line-height: 1; }
+.label { display: block; font-size: .85rem; opacity: .9; margin-top: 6px; }
+
+/* ========== CONTACT ========== */
+.contact-section { padding: 60px 20px; background-color: #f5f5f5; text-align: center; }
+.contact-section h2 { font-size: 2rem; margin-bottom: 10px; }
+.contact-section p { color: #555; margin-bottom: 30px; }
+.contact-form { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; }
+.contact-form input, .contact-form textarea {
+  padding: 12px; margin-bottom: 15px; border: none; border-bottom: 2px solid #ccc;
+  border-radius: 0; font-size: 1rem; background: #fff;
+}
+.contact-form textarea { height: 120px; resize: none; }
+.contact-form button {
+  padding: 8px 20px; background-color: #ff6565; color: white; border: none;
+  border-radius: 3px; font-size: 14px; cursor: pointer; width: auto; margin: 0 auto;
+}
+.contact-form button:hover { background-color: #e04b4b; }
+
+/* ========== FOOTER ========== */
+footer { background-color: #000; color: white; padding: 20px 0; text-align: center; }
+.footer-container {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+  max-width: 1100px; margin: auto; padding: 0 20px;
+}
+.footer-logo img { height: 40px; }
+.footer-social { display: flex; gap: 15px; }
+.footer-social a img { height: 24px; }
+.footer-copy { margin-top: 15px; font-size: 14px; color: #bbb; }
+
+/* ========== ANIMATIONS ========== */
+@keyframes floatY {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes rotateOverlay {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .service-item,
+  .result-item,
+  .pentagon::after { animation: none !important; }
+  .service-item,
+  .pentagon { transition: none !important; }
+}
+
+/* ========== RESPONSIVE ========== */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .services, .results-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero { padding-top: 120px; padding-bottom: 80px; }
+}
+@media (max-width: 767px) {
+  .menu-icon { display: flex; }
+  .logo { position: absolute; left: 50%; transform: translateX(-50%); top: 20px; z-index: 6; }
+  .logo-img { width: 120px; }
+  .site-nav { display: none; }
+  .site-nav {
+    position: absolute; top: 72px; left: 0; right: 0; margin: 0 auto;
+    flex-direction: column; align-items: center; padding: 18px 16px; z-index: 999;
+  }
+  .site-nav ul { flex-direction: column; gap: 18px; list-style: none; }
+  .site-nav a { color: #fff; font-size: 18px; }
+  #menu-toggle:checked ~ .site-nav { display: flex; }
+  .site-header { min-height: auto; }
+
+  .services, .results-grid { grid-template-columns: 1fr; }
+  .result-item { max-width: 220px; margin: 0 auto; }
+
+  /* Footer: keep icons in a row & centered on mobile */
+  .footer-container { flex-direction: column; gap: 15px; }
+  .footer-social { flex-direction: row; justify-content: center; }
+}
